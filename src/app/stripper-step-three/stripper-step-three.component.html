@@ -1,0 +1,75 @@
+<body class="container">
+    <div class="col-8 m-auto">
+        <div class="card">
+            <h4 style="text-align: center;">Professional Details</h4>
+            <div class="card-body">
+                <form [formGroup]="stepThreeForm">
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label for="designation">Designation</label>
+                            <input type="text" formControlName="designation" class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.designation.invalid && (f.designation.touched || f.designation.dirty)}">
+                            <div *ngIf=" f.designation.invalid && (f.designation.touched || f.designation.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.designation.errors?.required">Designation is required</div>
+                            </div>
+                        </div>
+                        <div class="col form-group">
+                            <label for="department">Department</label>
+                            <input type="text" formControlName="department" class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.department.invalid && (f.department.touched || f.department.dirty)}">
+                            <div *ngIf=" f.department.invalid && (f.department.touched || f.department.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.department.errors?.required">department is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label for="experience">Experience</label>
+                            <input type="text" formControlName="experience" class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.experience.invalid && (f.experience.touched || f.experience.dirty)}">
+                            <div *ngIf=" f.experience.invalid && (f.experience.touched || f.experience.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.experience.errors?.required">experience is required</div>
+                            </div>
+                        </div>
+                        <div class="col form-group">
+                            <label for="currentLocation">Current Location</label>
+                            <input type="text" formControlName="currentLocation" class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.currentLocation.invalid && (f.currentLocation.touched || f.currentLocation.dirty)}">
+                            <div *ngIf=" f.currentLocation.invalid && (f.currentLocation.touched || f.currentLocation.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.currentLocation.errors?.required">currentLocation is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label for="skill">Skills</label>
+                            <select class="form-control" name="" formControlName="skill"
+                                [ngClass]="{ 'is-invalid':  f.skill.invalid && (f.skill.touched || f.skill.dirty)}">
+                                <option value="Java">Java</option>
+                                <option value="Choose Skills">Choose Skills</option>
+                                <option value=".Net">Net</option>
+                                <option value="Node">Node</option>
+                                <option value="Angular">Angular</option>
+                            </select>
+                            <div *ngIf=" f.skill.invalid && (f.skill.touched || f.skill.dirty)" class="text-danger">
+                                <div *ngIf="f.skill.errors?.required">skill is required</div>
+                            </div>
+                        </div>
+                        <div class="col form-group">
+                            <label for="upload">Resume Upload</label>
+                            <input type="file" formControlName="upload" class="form-control" name="myfile" multiple
+                                [ngClass]="{ 'is-invalid':  f.upload.invalid && (f.upload.touched || f.upload.dirty)}">
+                            <div *ngIf=" f.upload.invalid && (f.upload.touched || f.upload.dirty)" class="text-danger">
+                                <div *ngIf="f.upload.errors?.required">upload is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

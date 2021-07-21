@@ -1,0 +1,101 @@
+<body class="container">
+    <div class="col-10 m-auto">
+        <div class="card">
+            <h4 style="text-align: center;">Professional Details</h4>
+            <div class="card-body">
+                <form [formGroup]="stepOneForm">
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label for="firstName">FirstName</label>
+                            <input type="text" formControlName="firstName" class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.firstName.invalid && (f.firstName.touched || f.firstName.dirty)}">
+                            <div *ngIf=" f.firstName.invalid && (f.firstName.touched || f.firstName.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.firstName.errors?.required">FirstName is required</div>
+                            </div>
+                        </div>
+                        <div class="col form-group">
+                            <label for="lastName">LastName</label>
+                            <input type="text" formControlName="lastName" class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.lastName.invalid && (f.lastName.touched || f.lastName.dirty)}">
+                            <div *ngIf=" f.lastName.invalid && (f.lastName.touched || f.lastName.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.lastName.errors?.required">LastName is required</div>
+                            </div>
+                        </div>
+                        <div class="col form-group">
+                            <label for="Email">Email</label>
+                            <input type="text" formControlName="email" class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.email.invalid && (f.email.touched || f.email.dirty) }">
+                            <div *ngIf=" f.email.invalid && (f.email.touched || f.email.dirty)" class="text-danger">
+                                <div *ngIf="f.email.errors?.required">Email is required</div>
+                                <div *ngIf="f.email.errors?.pattern">Please enter valid email address</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label for="mobileNo">Mobile Number</label>
+                            <input type="text" formControlName="mobileNo" class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.mobileNo.invalid && (f.mobileNo.touched || f.mobileNo.dirty)}">
+                            <div *ngIf=" f.mobileNo.invalid && (f.mobileNo.touched || f.mobileNo.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.mobileNo.errors?.required">Mobile is required</div>
+                                <div *ngIf="f.mobileNo.errors?.pattern">Enter 10 digit Mobile Number.</div>
+                            </div>
+                        </div>
+                        <div class="col form-group">
+                            <label for="dateOfBirth">Date Of Birth</label>
+                            <input type="date" formControlName="dateOfBirth" class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.dateOfBirth.invalid && (f.dateOfBirth.touched || f.dateOfBirth.dirty) }">
+                            <div *ngIf=" f.dateOfBirth.invalid && (f.dateOfBirth.touched || f.dateOfBirth.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.dateOfBirth.errors?.required">dateOfBirth is required</div>
+                            </div>
+                        </div>
+                        <div class="col form-group">
+
+                            <label for="file">Image Upload</label>
+                            <input type="file" formControlName="file" class="form-control" name="" multiple
+                                [ngClass]="{ 'is-invalid':  f.file.invalid && (f.file.touched || f.file.dirty) }">
+                            <div *ngIf=" f.file.invalid && (f.file.touched || f.file.dirty)" class="text-danger">
+                                <div *ngIf="f.file.errors?.required">Choose image upload required</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-row  align-items-end">
+                        <div class="col form-group">
+                            <label for="presentAddress">Present Address</label>
+                            <input type="text" formControlName="presentAddress" class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.presentAddress.invalid && (f.presentAddress.touched || f.presentAddress.dirty)}">
+                            <div *ngIf=" f.presentAddress.invalid && (f.presentAddress.touched || f.presentAddress.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.presentAddress.errors?.required">Present Address is required</div>
+                            </div>
+                        </div>
+                        <div class="col form-group">
+                            <label for="permanentAaddress">Parmanent Address</label>
+                            <input type="text" formControlName="permanentAaddress" class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.permanentAaddress.invalid && (f.permanentAaddress.touched || f.permanentAaddress.dirty)}">
+                            <div *ngIf=" f.permanentAaddress.invalid && (f.permanentAaddress.touched || f.permanentAaddress.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.permanentAaddress.errors?.required">Permanent Aaddress is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" col form-group form-check">
+                            <input type="checkbox" formControlName="acceptTerms" name=""
+                                [ngClass]="{ 'is-invalid':  f.acceptTerms.invalid && (f.acceptTerms.touched || f.acceptTerms.dirty) }">
+                            <label for="acceptTerms">Accept Terms & Conditions</label>
+                            <div *ngIf=" f.acceptTerms.invalid && (f.acceptTerms.touched || f.acceptTerms.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.acceptTerms.errors?.required">Checkbox is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

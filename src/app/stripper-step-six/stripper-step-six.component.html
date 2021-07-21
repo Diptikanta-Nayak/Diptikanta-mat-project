@@ -1,0 +1,41 @@
+<body class="container">
+    <div class="col-8 m-auto">
+        <div class="card">
+            <h4 style="text-align: center;">Current Organization Detail</h4>
+            <div class="card-body">
+                <form [formGroup]="stepSixForm">
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label for="joiningDate">Joining date</label>
+                            <input type="date" formControlName="joiningDate" class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.joiningDate.invalid && (f.joiningDate.touched || f.joiningDate.dirty)}">
+                            <div *ngIf=" f.joiningDate.invalid && (f.joiningDate.touched || f.joiningDate.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.joiningDate.errors?.required">joiningDate is required</div>
+                            </div>
+                        </div>
+                        <div class="col form-group">
+                            <label for="appraisaldate">Next Appraisal Date</label>
+                            <input type="date" formControlName="appraisaldate" class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.appraisaldate.invalid && (f.appraisaldate.touched || f.appraisaldate.dirty)}">
+                            <div *ngIf=" f.appraisaldate.invalid && (f.appraisaldate.touched || f.appraisaldate.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.appraisaldate.errors?.required">appraisaldate is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label for="currentctc">Current Ctc</label>
+                            <input type="text" formControlName="currentctc"  placeholder="0" class="form-control" name=""
+                            [ngClass]="{ 'is-invalid':  f.currentctc.invalid && (f.currentctc.touched || f.currentctc.dirty)}">
+                            <div *ngIf=" f.currentctc.invalid && (f.currentctc.touched || f.currentctc.dirty)" class="text-danger">
+                                <div *ngIf="f.currentctc.errors?.required">currentctc  is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

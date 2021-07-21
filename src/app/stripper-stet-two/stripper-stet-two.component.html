@@ -1,0 +1,81 @@
+<body class="container">
+    <div class="col-8 m-auto">
+        <div class="card">
+            <h4 style="text-align: center;">Bank Details</h4>
+            <div class="card-body">
+                <form [formGroup]="stepTwoForm">
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label for="bankName">Bank Name</label>
+                            <input type="text" formControlName="bankName" placeholder="Enter Bank Name"
+                                class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.bankName.invalid && (f.bankName.touched || f.bankName.dirty)}">
+                            <div *ngIf=" f.bankName.invalid && (f.bankName.touched || f.bankName.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.bankName.errors?.required">Bank Name is required</div>
+                            </div>
+                        </div>
+                        <div class="col form-group">
+                            <label for="accountName">Account Name</label>
+                            <input type="text" formControlName="accountName" placeholder="enter Account Name"
+                                class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.accountName.invalid && (f.accountName.touched || f.accountName.dirty)}">
+                            <div *ngIf=" f.accountName.invalid && (f.accountName.touched || f.accountName.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.accountName.errors?.required">Account Name is required</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label for="bankAccountNumber">Bank Account Number</label>
+                            <input type="text" formControlName="bankAccountNumber" placeholder="123456789908 "
+                                class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.bankAccountNumber.invalid && (f.bankAccountNumber.touched || f.bankAccountNumber.dirty)}">
+                            <div *ngIf=" f.bankAccountNumber.invalid && (f.bankAccountNumber.touched || f.bankAccountNumber.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.bankAccountNumber.errors?.required">Bank Account Number is required</div>
+                                <div *ngIf="f.bankAccountNumber.errors?.pattern">Bank account number must be at least 12
+                                    number</div>
+                            </div>
+                        </div>
+                        <div class="col form-group">
+                            <label for="ifsc">IFSC Number</label>
+                            <input type="text" formControlName="ifsc" placeholder="Enter IFSC code "
+                                class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.ifsc.invalid && (f.ifsc.touched || f.ifsc.dirty)}">
+                            <div *ngIf=" f.ifsc.invalid && (f.ifsc.touched || f.ifsc.dirty)" class="text-danger">
+                                <div *ngIf="f.ifsc.errors?.required">ifsc code is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label for="addharCard">Addhara Card Number</label>
+                            <input type="text" formControlName="addharCard" placeholder="Enter addhara card number "
+                                class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.addharCard.invalid && (f.addharCard.touched || f.addharCard.dirty)}">
+                            <div *ngIf=" f.addharCard.invalid && (f.addharCard.touched || f.addharCard.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.addharCard.errors?.required">AddharCard is required</div>
+                                <div *ngIf="f.addharCard.errors?.pattern">addharCard must be at least 12 number</div>
+                            </div>
+                        </div>
+                        <div class="col form-group">
+                            <label for="pancard">Pan Card Number</label>
+                            <input type="text" formControlName="pancard" placeholder="Enter pan card number "
+                                class="form-control" name=""
+                                [ngClass]="{ 'is-invalid':  f.pancard.invalid && (f.pancard.touched || f.pancard.dirty)}">
+                            <div *ngIf=" f.pancard.invalid && (f.pancard.touched || f.pancard.dirty)"
+                                class="text-danger">
+                                <div *ngIf="f.pancard.errors?.required">pancard is required</div>
+                                <div *ngIf="f.pancard.errors?.pattern">pancard must be at least 12 number</div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

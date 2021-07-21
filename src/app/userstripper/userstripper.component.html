@@ -1,0 +1,36 @@
+<div class="example-container">
+    <mat-stepper #stepper >
+        <mat-step>
+            <app-stripper-step-one #dataref></app-stripper-step-one>           
+                <ng-template matStepLabel>personal Details</ng-template>          
+        </mat-step>  
+
+        <mat-step label="Bank Details">
+            <app-stripper-stet-two></app-stripper-stet-two>
+           
+        </mat-step>
+        <mat-step label="Professional Detail">
+            <app-stripper-step-three></app-stripper-step-three>
+           
+        </mat-step>
+        <mat-step label="Education Detail">
+            <app-stripper-step-four></app-stripper-step-four>
+           
+        </mat-step>
+        <mat-step label="Experience Detail">
+            <app-stripper-step-five></app-stripper-step-five>
+            
+        </mat-step>
+        <mat-step label="Current Organization Detail">
+            <app-stripper-step-six></app-stripper-step-six>         
+              <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext color="warn" routerLink="/thank-u-page">Finish</button>
+                </div>       
+        </mat-step>
+    </mat-stepper>
+</div>
+<div class="designButton">
+    <button mat-button  (click)="next(stepper)">Next</button>
+</div>
+    

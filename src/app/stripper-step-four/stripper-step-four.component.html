@@ -1,0 +1,34 @@
+<div style=" margin-right: 80px;margin-top: 30px;text-align: right ;">
+  <button class="btn btn-primary">Add Aducation</button>
+</div>
+<div class="container">
+  <div style="text-align: center;">
+    <h3>Education Details</h3>
+  </div>
+  <table class="table table-striped"  >
+    <thead>
+      <tr>
+        <th>Education Name</th>
+        <th>University Name</th>
+        <th>Result</th>
+        <th>Year Of Passing</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let character of characters">
+        <td>{{ character.actor_name }}</td>
+        <td>{{ character.character_name }}</td>
+        <td>{{ character.gender }}</td>
+        <td>{{ character.status }}</td>
+        <td><i style='font-size:24px' class='far'>&#xf044;</i></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+  
+
+

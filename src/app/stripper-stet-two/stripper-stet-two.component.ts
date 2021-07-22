@@ -13,8 +13,8 @@ export class StripperStetTwoComponent implements OnInit {
     accountName: ['', Validators.required],
     bankAccountNumber: ['',[ Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(12)]],
     ifsc: ['', Validators.required],
-    addharCard:['', Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(12)],
-    pancard:['', Validators.required,Validators.pattern("^[0-9]*$"),Validators.minLength(12)],
+    addharCard:['', Validators.required],
+    pancard:['', Validators.required],
   })
 
   constructor(private fb:FormBuilder) { 

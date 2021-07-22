@@ -59,7 +59,6 @@
                             <div *ngIf=" f.addharCard.invalid && (f.addharCard.touched || f.addharCard.dirty)"
                                 class="text-danger">
                                 <div *ngIf="f.addharCard.errors?.required">AddharCard is required</div>
-                                <div *ngIf="f.addharCard.errors?.pattern">addharCard must be at least 12 number</div>
                             </div>
                         </div>
                         <div class="col form-group">
@@ -70,7 +69,7 @@
                             <div *ngIf=" f.pancard.invalid && (f.pancard.touched || f.pancard.dirty)"
                                 class="text-danger">
                                 <div *ngIf="f.pancard.errors?.required">pancard is required</div>
-                                <div *ngIf="f.pancard.errors?.pattern">pancard must be at least 12 number</div>
+                               
                             </div>
                         </div>
                     </div>

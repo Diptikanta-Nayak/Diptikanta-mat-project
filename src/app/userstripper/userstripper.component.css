@@ -41,8 +41,13 @@
   }
   
   .designButton button{
-    margin-right: 200px;
+    
     background-color: darkblue;
+    color: white;
+    margin-left: 15px;
+  }
+  .designButton button:first-child{
+    background-color: tomato;
     color: white;
   }
   

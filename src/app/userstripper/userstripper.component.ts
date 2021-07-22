@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatStepper } from '@angular/material/stepper';
 import { StripperStepOneComponent } from '../stripper-step-one/stripper-step-one.component';
 import { StripperserviceService } from '../stripperservice.service';
@@ -9,36 +9,61 @@ import { StripperserviceService } from '../stripperservice.service';
   styleUrls: ['./userstripper.component.css']
 })
 export class UserstripperComponent implements OnInit {
- 
+
   //  @ViewChild(StripperStepOneComponent,{ static: false }) child: StripperStepOneComponent; 
 
-  @ViewChild('dataref', { static: false }) child;
+  @ViewChild('stepone') stepOne;
+  @ViewChild('steptwo') stepTwo;
+  @ViewChild('stepthree') stepThree;
+  @ViewChild('stepfour') stepFour;
+  @ViewChild('stepfive') stepFive;
+  @ViewChild('stepsix') stepSix;
 
-  constructor(private stepperService:StripperserviceService) {
 
-    this.stepperService.getEmployeeStepper().subscribe((data)=>{
-      console.log('data',data)
+  constructor(private stepperService: StripperserviceService) {
+
+    this.stepperService.getEmployeeStepper().subscribe((data) => {
+      console.log('data', data)
     });
-   }
-   
+  }
+
   ngOnInit() {
   }
-  ngAfterViewInit() {
-    
-  }
  
-  next(stepper: MatStepper) {
+  previousStepper(stepper) {
+    stepper.previous();
+  }
 
-    if (this.child.stepOneForm.invalid) {
-     
-      this.child.stepOneForm.markAllAsTouched();
-     return;
+  nextStepper(stepper: MatStepper) {
+
+    switch (stepper.selectedIndex) {
+      case 0:
+        if (this.stepOne.stepOneForm.invalid) {
+          this.stepOne.stepOneForm.markAllAsTouched();
+          return;
+        }
+        break;
+
+      case 1:
+        if (this.stepTwo.stepTwoForm.invalid) {
+          this.stepTwo.stepTwoForm.markAllAsTouched();
+          return;
+        }
+        break;
+        case 2:
+        if (this.stepThree.stepThreeForm.invalid) {
+          this.stepThree.stepThreeForm.markAllAsTouched();
+          return;
+        }
+        break;
     }
-    this.stepperService.setEmployeeStepper(this.child.stepOneForm.value);
-      stepper.next();
+   
+    //mearge object
+     this.stepperService.setEmployeeStepper({...this.stepOne.stepOneForm.value, ...this.stepTwo.stepTwoForm.value,...this.stepThree.stepThreeForm.value});
+   
+
+    stepper.next();
+
   }
 }
-
-
-
 

@@ -34,7 +34,10 @@ import { ThankUPageComponent } from './thank-u-page/thank-u-page.component';
     StripperStepFourComponent,
     StripperStepFiveComponent,
     StripperStepSixComponent,
-    ThankUPageComponent
+    ThankUPageComponent,
+   
+   
+    
 
 
 

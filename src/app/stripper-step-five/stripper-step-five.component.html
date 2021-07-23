@@ -1,11 +1,11 @@
 <div style="text-align: right; margin-right: 80px;margin-top: 30px;">
-  <button class="btn btn-primary ">Add Experience</button>
+  <button class="btn btn-primary "><mat-icon>add</mat-icon>Add Experience</button>
 </div>
 <div class="container">
   <div style="text-align: center;">
     <h4>Experience Details</h4>
   </div>
-  <table class="table table-striped">
+  <table class="table ">
     <thead>
       <tr>
         <th>Company Name</th>
@@ -16,11 +16,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let character of characters">
-        <td>{{ character.actor_name }}</td>
-        <td>{{ character.character_name }}</td>
-        <td>{{ character.gender }}</td>
-        <td>{{ character.status }}</td> 
+      <tr>
+         
       </tr>
     </tbody>
   </table>

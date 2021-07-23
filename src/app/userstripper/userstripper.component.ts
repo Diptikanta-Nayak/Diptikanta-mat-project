@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatStepper } from '@angular/material/stepper';
-import { StripperStepOneComponent } from '../stripper-step-one/stripper-step-one.component';
 import { StripperserviceService } from '../stripperservice.service';
 
 @Component({
@@ -10,8 +9,6 @@ import { StripperserviceService } from '../stripperservice.service';
 })
 export class UserstripperComponent implements OnInit {
 
-  //  @ViewChild(StripperStepOneComponent,{ static: false }) child: StripperStepOneComponent; 
-
   @ViewChild('stepone') stepOne;
   @ViewChild('steptwo') stepTwo;
   @ViewChild('stepthree') stepThree;
@@ -19,14 +16,13 @@ export class UserstripperComponent implements OnInit {
   @ViewChild('stepfive') stepFive;
   @ViewChild('stepsix') stepSix;
 
-
   constructor(private stepperService: StripperserviceService) {
 
     this.stepperService.getEmployeeStepper().subscribe((data) => {
       console.log('data', data)
     });
   }
-
+  
   ngOnInit() {
   }
  
@@ -57,13 +53,9 @@ export class UserstripperComponent implements OnInit {
         }
         break;
     }
-   
-    //mearge object
+    //merge object
      this.stepperService.setEmployeeStepper({...this.stepOne.stepOneForm.value, ...this.stepTwo.stepTwoForm.value,...this.stepThree.stepThreeForm.value});
-   
-
     stepper.next();
-
   }
 }
 

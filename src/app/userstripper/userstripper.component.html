@@ -1,42 +1,37 @@
 <div class="example-container">
-    <mat-stepper #stepper >
-        <mat-step>
-            <app-stripper-step-one #stepone></app-stripper-step-one>           
-                <ng-template matStepLabel>personal Details</ng-template>          
-        </mat-step>  
+    <mat-stepper [linear]="isLinear" #stepper>
 
-        <mat-step label="Bank Details">
+        <mat-step label="Personal Details" [stepControl]="stepOne?.stepOneForm">
+            <app-stripper-step-one #stepone></app-stripper-step-one>
+        </mat-step>
+
+        <mat-step label="Bank Details" [stepControl]="stepTwo?.stepTwoForm">
             <app-stripper-stet-two #steptwo></app-stripper-stet-two>
-           
         </mat-step>
-        <mat-step label="Professional Detail">
+
+        <mat-step label="Professional Detail" [stepControl]="stepThree?.stepThreeForm">
             <app-stripper-step-three #stepthree></app-stripper-step-three>
-           
         </mat-step>
-        <mat-step label="Education Detail">
+
+        <mat-step label="Education Detail" [stepControl]="stepFour?.stepFourForm">
             <app-stripper-step-four #stepfour></app-stripper-step-four>
-           
         </mat-step>
-        <mat-step label="Experience Detail">
+
+        <mat-step label="Experience Detail" [stepControl]="stepFive?.stepFiveForm">
             <app-stripper-step-five #stepfive></app-stripper-step-five>
-            
         </mat-step>
-        <mat-step label="Current Organization Detail">
-            <app-stripper-step-six #stepsix></app-stripper-step-six>         
-              <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext color="warn" routerLink="/thank-u-page">Finish</button>
-                </div>       
+
+        <mat-step label="Current Organization Detail" [stepControl]="stepSix?.stepSixForm">
+            <app-stripper-step-six #stepsix></app-stripper-step-six>
         </mat-step>
     </mat-stepper>
 </div>
 
 <div class="container">
-<div class="row designButton">
-    <div class="col-10 m-auto text-right">
-        <button mat-button (click)="previousStepper(stepper)" [disabled]="stepper.selectedIndex === 0">Back</button>
-        <button mat-button  (click)="nextStepper(stepper)">Next</button>
+    <div class="row designButton">
+        <div class="col-10 m-auto text-right">
+            <button mat-button (click)="previousStepper(stepper)" [disabled]="stepper.selectedIndex === 0">Back</button>
+            <button mat-button (click)="nextStepper(stepper)">Next</button>
+        </div>
     </div>
 </div>
-</div>
-    

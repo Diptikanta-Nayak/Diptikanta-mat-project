@@ -6,16 +6,18 @@ import { FormBuilder, Validators } from '@angular/forms';
   templateUrl: './stripper-step-six.component.html',
   styleUrls: ['./stripper-step-six.component.css']
 })
+
 export class StripperStepSixComponent implements OnInit {
+
   stepSixForm = this.fb.group({
     joiningDate: ['', Validators.required],
     appraisaldate: ['', Validators.required],
-    currentctc: ['', (Validators.required, Validators.pattern("^[0-9]*$"))]
+    currentctc: ['', [Validators.pattern('^[0-4]{4}$'), Validators.required]]
   })
+  
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
   get f() { return this.stepSixForm.controls }
-
 }

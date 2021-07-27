@@ -1,17 +1,14 @@
 .mat-stepper-horizontal {
     margin-top: 8px;
     
-  
   }
-  
+ 
   .mat-form-field {
     margin-top: 80px;
-  
   }
 
   .example-container .mat-form-field + .mat-form-field {
-    margin-left: 150px;
-    
+    margin-left: 150px;  
   }
   
   .example-container .mat-form-field {
@@ -36,6 +33,7 @@
   .text-danger{
       color: red;
   }
+
   .designButton{
     text-align: right;
   }
@@ -46,6 +44,7 @@
     color: white;
     margin-left: 15px;
   }
+  
   .designButton button:first-child{
     background-color: tomato;
     color: white;

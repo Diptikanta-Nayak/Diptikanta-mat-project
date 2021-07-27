@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component,OnInit} from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -17,13 +17,14 @@ export class StripperStepOneComponent implements OnInit {
     file: ['', Validators.required],
     presentAddress: ['', Validators.required],
     permanentAaddress: ['', Validators.required],
-    acceptTerms: ['', Validators.required]
+    acceptTerms: ['', Validators.required],
   });
-  constructor(private fb: FormBuilder) { 
-   }
+
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
   }
-  get f() { return this.stepOneForm.controls }
 
+  get f() { return this.stepOneForm.controls }
+  
 }

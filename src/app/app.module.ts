@@ -22,7 +22,6 @@ import { StripperStepThreeComponent } from './stripper-step-three/stripper-step-
 import { StripperStepFourComponent } from './stripper-step-four/stripper-step-four.component';
 import { StripperStepFiveComponent } from './stripper-step-five/stripper-step-five.component';
 import { StripperStepSixComponent } from './stripper-step-six/stripper-step-six.component';
-import { ThankUPageComponent } from './thank-u-page/thank-u-page.component';
 
 @NgModule({
   declarations: [
@@ -34,14 +33,8 @@ import { ThankUPageComponent } from './thank-u-page/thank-u-page.component';
     StripperStepFourComponent,
     StripperStepFiveComponent,
     StripperStepSixComponent,
-    ThankUPageComponent,
-   
-   
-    
-
-
-
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -58,10 +51,10 @@ import { ThankUPageComponent } from './thank-u-page/thank-u-page.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatCheckboxModule
-
-
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserstripperComponent } from './userstripper/userstripper.component';
-import { ThankUPageComponent } from './thank-u-page/thank-u-page.component';
 import { StripperStepOneComponent } from './stripper-step-one/stripper-step-one.component';
 import { StripperStetTwoComponent } from './stripper-stet-two/stripper-stet-two.component';
 import { StripperStepThreeComponent } from './stripper-step-three/stripper-step-three.component';
@@ -17,8 +16,6 @@ const routes: Routes = [
   { path: 'stripper-step-four', component: StripperStepFourComponent },
   { path: 'stripper-step-five', component: StripperStepFiveComponent },
   { path: 'stripper-step-six', component: StripperStepSixComponent },
-  { path: 'thank-u-page', component: ThankUPageComponent },
-
 ];
 
 @NgModule({

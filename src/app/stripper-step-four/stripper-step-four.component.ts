@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder,  FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-stripper-step-four',
@@ -7,15 +7,16 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
   styleUrls: ['./stripper-step-four.component.css']
 })
 export class StripperStepFourComponent implements OnInit {
-  hideShow=true;
-  orderForm = this.fb.group({
-    items: new FormArray([]),
+
+  enableEdit:boolean=false;
+
+  stepFourForm = this.fb.group({
+    educationdetails: new FormArray([]),
   });
- 
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    
   }
 
   createItem(): FormGroup {
@@ -27,23 +28,30 @@ export class StripperStepFourComponent implements OnInit {
     });
   }
 
-get f(){return this.orderForm.controls}
-
   fuchideShow() {
-    const data = this.orderForm.get('items') as FormArray;
-
+    const data = this.stepFourForm.get('educationdetails') as FormArray;
     data.push(this.createItem());
-
-    console.log('sdfsdf', this.orderForm);
+    console.log('DATA', this.stepFourForm);
   }
 
-  onSave(){
-    if(this.orderForm.invalid){
-      this.orderForm.markAllAsTouched();
-    return;
-  
+  onSave(i) {
+    let  itemcontrol = this.stepFourForm.get('educationdetails') as FormArray;
+    if (itemcontrol.controls[i].invalid) {
+      itemcontrol.controls[i].markAllAsTouched();
+      return;
     }
-    
+
+    itemcontrol.controls[i].disable();
+
   }
 
+
+  delete(i:number){
+      this.stepFourForm.get('educationdetails')['controls'].splice(i, 1);  
+  }
+
+  edit(i){
+    let itemcontrol = this.stepFourForm.get('educationdetails') as FormArray;
+    itemcontrol.controls[i].enable();
+  }
 }

@@ -3,11 +3,14 @@
     Add Education
   </button>
 </div>
-<div class="container w-100">
+
+<div class="container">
   <div style="text-align: center;">
     <h3>Education Details</h3>
   </div>
-  <table class="table" [formGroup]="orderForm">
+
+  <table class="table" [formGroup]="stepFourForm">
+
     <thead>
       <tr>
         <th>Education Name</th>
@@ -17,44 +20,42 @@
         <th>Action</th>
       </tr>
     </thead>
+
     <tbody>
-
-
-      <ng-container formArrayName="items">
-
-        <ng-container *ngFor="let item of orderForm.get('items')['controls']; let i = index;">
+      <ng-container formArrayName="educationdetails">
+        <ng-container *ngFor="let item of stepFourForm.get('educationdetails')['controls']; let i = index;">
           <tr [formGroupName]="i">
             <td class="form-group">
               <input type="text" formControlName="educationname" placeholder="Education Name" class="form-control"
                 name="">
-                <div *ngIf="item.get('educationname').touched && item.get('educationname').invalid" class="danger">
-                  Education Name Required</div>
+              <div *ngIf="item.get('educationname').touched && item.get('educationname').invalid" class="danger">
+                Education Name Required</div>
             </td>
 
-            <td  class="form-group">
-              <input type="text" class="form-control" placeholder="University Name" formControlName="universityname" 
+            <td class="form-group">
+              <input type="text" class="form-control" placeholder="University Name" formControlName="universityname"
                 name="">
-                <div *ngIf="item.get('universityname').touched && item.get('universityname').invalid" class="danger">
-                  University Name Required</div>
+              <div *ngIf="item.get('universityname').touched && item.get('universityname').invalid" class="danger">
+                University Name Required</div>
             </td>
 
-            <td  class="form-group">
+            <td class="form-group">
               <input type="text" class="form-control" formControlName="result" name="" placeholder="Result">
               <div *ngIf="item.get('result').touched && item.get('educationname').invalid" class="danger">
                 Result Is Required</div>
             </td>
 
-            <td  class="form-group">
-              
+            <td class="form-group">
               <input type="text" class="form-control" formControlName="yearofpassing" placeholder="Year Of Passing"
                 name="">
-                <div *ngIf="item.get('yearofpassing').touched && item.get('educationname').invalid" class="danger">
-                  Year Of Passing  is Requied</div>
+              <div *ngIf="item.get('yearofpassing').touched && item.get('yearofpassing').invalid" class="danger">
+                Year Of Passing is Requied</div>
             </td>
 
             <td>
-              <mat-icon *ngIf="!hideShow" style="color: blue; width: 50px;"  (click)="onSave()">save</mat-icon>   
-              <mat-icon style="color:red">delete</mat-icon>
+              <mat-icon *ngIf="!item.disabled" style="color: blue; width: 50px;" (click)="onSave(i)">save</mat-icon>
+              <mat-icon *ngIf="item.disabled" style="color:blue" (click)="edit(i)">edit</mat-icon>
+              <mat-icon style="color:red" (click)="delete(i)">delete</mat-icon>
             </td>
           </tr>
         </ng-container>

@@ -1,11 +1,13 @@
 <div style="text-align: right; margin-right: 80px;margin-top: 30px;">
-  <button class="btn btn-primary "><mat-icon>add</mat-icon>Add Experience</button>
+  <button class="btn btn-primary" (click)="fuchideShow()">Add Experience</button>
 </div>
+
 <div class="container">
   <div style="text-align: center;">
     <h4>Experience Details</h4>
   </div>
-  <table class="table ">
+
+  <table class="table" [formGroup]="stepFiveForm">
     <thead>
       <tr>
         <th>Company Name</th>
@@ -15,10 +17,43 @@
         <th>Action</th>
       </tr>
     </thead>
+
     <tbody>
-      <tr>
-         
-      </tr>
+      <ng-container formArrayName="experiencedetails">
+        <ng-container *ngFor="let item of stepFiveForm.get('experiencedetails')['controls']; let i = index;">
+          <tr [formGroupName]="i">
+            <td class="form-group">
+              <input type="text" formControlName="companyname" placeholder="Company Name" class="form-control" name="">
+              <div *ngIf="item.get('companyname').touched && item.get('companyname').invalid" class="danger">
+                Company Name Required</div>
+            </td>
+
+            <td class="form-group">
+              <input type="text" class="form-control" placeholder="Position " formControlName="position" name="">
+              <div *ngIf="item.get('position').touched && item.get('position').invalid" class="danger">
+                Position Required</div>
+            </td>
+
+            <td class="form-group">
+              <input type="text" class="form-control" formControlName="totalyear" name="" placeholder="Total Year">
+              <div *ngIf="item.get('totalyear').touched && item.get('totalyear').invalid" class="danger">
+                Total Year Required</div>
+            </td>
+
+            <td class="form-group">
+              <input type="text" class="form-control" formControlName="lastetc" placeholder="Last etc" name="">
+              <div *ngIf="item.get('lastetc').touched && item.get('lastetc').invalid" class="danger">
+                Last etc Required</div>
+            </td>
+
+            <td>
+              <mat-icon *ngIf="!item.disabled" style="color:  blue; width: 50px;" (click)="onSave(i)">save</mat-icon>
+              <mat-icon *ngIf="item.disabled" style="color:blue" (click)="edit(i)">edit</mat-icon>
+              <mat-icon style="color:red" (click)="delete(i)">delete</mat-icon>
+            </td>
+          </tr>
+        </ng-container>
+      </ng-container>
     </tbody>
   </table>
 </div>

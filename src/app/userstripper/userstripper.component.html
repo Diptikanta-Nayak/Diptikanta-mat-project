@@ -1,5 +1,5 @@
 <div class="example-container">
-    <mat-stepper [linear]="isLinear" #stepper>
+    <mat-stepper   [linear]="isLinear" #stepper>
 
         <mat-step label="Personal Details" [stepControl]="stepOne?.stepOneForm">
             <app-stripper-step-one #stepone></app-stripper-step-one>
@@ -30,8 +30,9 @@
 <div class="container">
     <div class="row designButton">
         <div class="col-10 m-auto text-right">
+            <button   mat-button routerLink="/employee">BackList</button>
             <button mat-button (click)="previousStepper(stepper)" [disabled]="stepper.selectedIndex === 0">Back</button>
-            <button mat-button (click)="nextStepper(stepper)">Next</button>
+            <button mat-button (click)="nextStepper(stepper)">Next</button>         
         </div>
     </div>
 </div>

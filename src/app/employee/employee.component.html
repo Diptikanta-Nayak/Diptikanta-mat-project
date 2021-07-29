@@ -1,0 +1,38 @@
+<div style="text-align: center;">
+    <h3>Employee Management System</h3>
+</div>
+
+<div style="text-align: right; margin-right:80px;margin-top: 30px;">
+    <button class="btn btn-primary" routerLink="/userstripper">Add Employee</button>
+</div>
+
+<div class="container ">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Designation</th>
+                <th>Email</th>
+                <th>Mobile Number</th>
+                <th>Resume</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let data of datalist; index as i">
+                <td>{{ data.firstName }} {{data.lastName}}</td>
+                <td>{{data.department }}</td>
+                <td>{{ data.designation }}</td>
+                <td>{{ data.email }}</td>
+                <td>{{data.mobileNo}}</td>
+                <td>{{data.file}}</td>
+                <td>
+                    <mat-icon style="color:blue" routerLink="/userstripper-edit/{{i}}">edit</mat-icon>
+                    <mat-icon style="color:red" (click)="delete(i)">delete</mat-icon>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

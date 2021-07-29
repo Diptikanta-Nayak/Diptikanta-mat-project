@@ -7,15 +7,18 @@ import { StripperStepThreeComponent } from './stripper-step-three/stripper-step-
 import { StripperStepFourComponent } from './stripper-step-four/stripper-step-four.component';
 import { StripperStepFiveComponent } from './stripper-step-five/stripper-step-five.component';
 import { StripperStepSixComponent } from './stripper-step-six/stripper-step-six.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 const routes: Routes = [
   { path: 'userstripper', component: UserstripperComponent },
+  { path: 'userstripper-edit/:id', component: UserstripperComponent },
   { path: 'stripper-step-one', component: StripperStepOneComponent },
   { path: 'stripper-step-two', component: StripperStetTwoComponent },
   { path: 'stripper-step-three', component: StripperStepThreeComponent },
   { path: 'stripper-step-four', component: StripperStepFourComponent },
   { path: 'stripper-step-five', component: StripperStepFiveComponent },
   { path: 'stripper-step-six', component: StripperStepSixComponent },
+  { path: 'employee', component: EmployeeComponent },
 ];
 
 @NgModule({

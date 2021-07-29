@@ -1,8 +1,7 @@
-import { StepperSelectionEvent } from '@angular/cdk/stepper';
+
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatOptionSelectionChange } from '@angular/material/core';
 import { MatStepper } from '@angular/material/stepper';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StripperserviceService } from '../stripperservice.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { StripperserviceService } from '../stripperservice.service';
   styleUrls: ['./userstripper.component.css']
 })
 export class UserstripperComponent implements OnInit {
-
+dalaemploye=[];
   isLinear = true;
   @ViewChild('stepone') stepOne;
   @ViewChild('steptwo') stepTwo;
@@ -19,15 +18,28 @@ export class UserstripperComponent implements OnInit {
   @ViewChild('stepfour') stepFour;
   @ViewChild('stepfive') stepFive;
   @ViewChild('stepsix') stepSix;
+  id: any;
+  
 
-  constructor(private stepperService: StripperserviceService) {
+  constructor(private stepperService: StripperserviceService,private route:ActivatedRoute) {
 
-    this.stepperService.getEmployeeStepper().subscribe((data) => {
-      console.log('data', data)
+   this.stepperService.getEmployeeStepper().subscribe((data) => {   
+      console.log('data',data)  
     });
   }
 
-  ngOnInit() {
+  ngOnInit() { 
+    const dataemplpoyee=JSON.parse(localStorage.getItem('employeedata')||'[]');
+    this.id = this.route.snapshot.params['id'];
+
+    if (this.id) {
+      debugger;
+      console.log('dataemplpoyee',dataemplpoyee)
+      const createemployee =dataemplpoyee[this.id];
+      this.stepOne.stepOneForm.value.patchValue(createemployee);
+     
+            
+    }
   }
 
   previousStepper(stepper) {
@@ -35,7 +47,6 @@ export class UserstripperComponent implements OnInit {
   }
 
   nextStepper(stepper: MatStepper) {
-
     switch (stepper.selectedIndex) {
       case 0:
         if (this.stepOne.stepOneForm.invalid) {
@@ -44,7 +55,7 @@ export class UserstripperComponent implements OnInit {
         }
         break;
 
-      case 1:
+      case 1:      
         if (this.stepTwo.stepTwoForm.invalid) {
           this.stepTwo.stepTwoForm.markAllAsTouched();
           return;
@@ -89,8 +100,34 @@ export class UserstripperComponent implements OnInit {
       ...this.stepFive.stepFiveForm.value,
       ...this.stepSix.stepSixForm.value
     });
+  
+    if(stepper.selectedIndex === 5){
+      const dataemplpoyee=JSON.parse(localStorage.getItem('employeedata')||'[]');
 
-    stepper.next();
-  }
+      dataemplpoyee.push({
+        ...this.stepOne.stepOneForm.value,
+        ...this.stepTwo.stepTwoForm.value,
+        ...this.stepThree.stepThreeForm.value,
+        ...this.stepFour.stepFourForm.value,
+        ...this.stepFive.stepFiveForm.value,
+        ...this.stepSix.stepSixForm.value
+      });
+      // localStorage.setItem('employeedata',JSON.stringify([{
+      //   ...this.stepOne.stepOneForm.value,
+      //   ...this.stepTwo.stepTwoForm.value,
+      //   ...this.stepThree.stepThreeForm.value,
+      //   ...this.stepFour.stepFourForm.value,
+      //   ...this.stepFive.stepFiveForm.value,
+      //   ...this.stepSix.stepSixForm.value
+      // }])); 
+
+      localStorage.setItem('employeedata',JSON.stringify(dataemplpoyee));
+
+     
+   
+
+  }  
+    stepper.next();  
 }
+  }
 

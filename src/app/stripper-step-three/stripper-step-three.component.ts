@@ -22,4 +22,10 @@ export class StripperStepThreeComponent implements OnInit {
   ngOnInit(): void {
   }
   get f() {return this.stepThreeForm.controls}
+  uploadFile($event: Event) {
+
+    const fileupload = ($event.target as HTMLInputElement).files[0];
+    let  src=URL.createObjectURL(fileupload);
+    window.open(src)
+}
 }

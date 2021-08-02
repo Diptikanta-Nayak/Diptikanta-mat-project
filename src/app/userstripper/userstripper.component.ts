@@ -1,6 +1,7 @@
 
+import { AfterViewInit } from '@angular/core';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatStepper } from '@angular/material/stepper';
+ import { MatStepper } from '@angular/material/stepper';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StripperserviceService } from '../stripperservice.service';
 
@@ -9,8 +10,8 @@ import { StripperserviceService } from '../stripperservice.service';
   templateUrl: './userstripper.component.html',
   styleUrls: ['./userstripper.component.css']
 })
-export class UserstripperComponent implements OnInit {
-dalaemploye=[];
+export class UserstripperComponent implements OnInit, AfterViewInit {
+
   isLinear = true;
   @ViewChild('stepone') stepOne;
   @ViewChild('steptwo') stepTwo;
@@ -19,26 +20,31 @@ dalaemploye=[];
   @ViewChild('stepfive') stepFive;
   @ViewChild('stepsix') stepSix;
   id: any;
-  
 
-  constructor(private stepperService: StripperserviceService,private route:ActivatedRoute) {
+  constructor(private stepperService: StripperserviceService, private route: ActivatedRoute) {
 
-   this.stepperService.getEmployeeStepper().subscribe((data) => {   
-      console.log('data',data)  
-    });
+    // this.stepperService.getEmployeeStepper().subscribe((data) => {
+    //   console.log('data', data)
+    // });
   }
 
-  ngOnInit() { 
-    const dataemplpoyee=JSON.parse(localStorage.getItem('employeedata')||'[]');
+  ngOnInit() {
+  }
+
+  ngAfterViewInit(): void {
+
+    const dataemplpoyee = JSON.parse(localStorage.getItem('employeedata') || '[]');
     this.id = this.route.snapshot.params['id'];
 
     if (this.id) {
-      debugger;
-      console.log('dataemplpoyee',dataemplpoyee)
-      const createemployee =dataemplpoyee[this.id];
-      this.stepOne.stepOneForm.value.patchValue(createemployee);
-     
-            
+      const createemployee = dataemplpoyee[this.id];
+      this.stepOne.stepOneForm.patchValue(createemployee);
+      console.log('ihtigh', this.stepOne.stepOneForm);
+      this.stepTwo.stepTwoForm.patchValue(createemployee);
+      this.stepThree.stepThreeForm.patchValue(createemployee);
+      this.stepFour.stepFourForm.patchValue(createemployee);
+      this.stepFive.stepFiveForm.patchValue(createemployee);
+      this.stepSix.stepSixForm.patchValue(createemployee);
     }
   }
 
@@ -55,7 +61,7 @@ dalaemploye=[];
         }
         break;
 
-      case 1:      
+      case 1:
         if (this.stepTwo.stepTwoForm.invalid) {
           this.stepTwo.stepTwoForm.markAllAsTouched();
           return;
@@ -100,9 +106,9 @@ dalaemploye=[];
       ...this.stepFive.stepFiveForm.value,
       ...this.stepSix.stepSixForm.value
     });
-  
-    if(stepper.selectedIndex === 5){
-      const dataemplpoyee=JSON.parse(localStorage.getItem('employeedata')||'[]');
+
+    if (stepper.selectedIndex === 5) {
+      const dataemplpoyee = JSON.parse(localStorage.getItem('employeedata') || '[]');
 
       dataemplpoyee.push({
         ...this.stepOne.stepOneForm.value,
@@ -112,22 +118,10 @@ dalaemploye=[];
         ...this.stepFive.stepFiveForm.value,
         ...this.stepSix.stepSixForm.value
       });
-      // localStorage.setItem('employeedata',JSON.stringify([{
-      //   ...this.stepOne.stepOneForm.value,
-      //   ...this.stepTwo.stepTwoForm.value,
-      //   ...this.stepThree.stepThreeForm.value,
-      //   ...this.stepFour.stepFourForm.value,
-      //   ...this.stepFive.stepFiveForm.value,
-      //   ...this.stepSix.stepSixForm.value
-      // }])); 
 
-      localStorage.setItem('employeedata',JSON.stringify(dataemplpoyee));
-
-     
-   
-
-  }  
-    stepper.next();  
-}
+      localStorage.setItem('employeedata', JSON.stringify(dataemplpoyee));
+    }
+    stepper.next();
   }
+}
 

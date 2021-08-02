@@ -24,6 +24,7 @@ export class StripperStepSixComponent implements OnInit {
 
   ngOnInit(): void { 
   }
+  
   get f() {return this.stepSixForm.controls}
   
 }

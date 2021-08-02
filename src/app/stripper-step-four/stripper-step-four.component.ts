@@ -28,7 +28,7 @@ export class StripperStepFourComponent implements OnInit {
     });
   }
 
-  fuchideShow() {
+  addEducation() {
     const data = this.stepFourForm.get('educationdetails') as FormArray;
     data.push(this.createItem());
     console.log('DATA', this.stepFourForm);
@@ -44,7 +44,6 @@ export class StripperStepFourComponent implements OnInit {
     itemcontrol.controls[i].disable();
 
   }
-
 
   delete(i:number){
       this.stepFourForm.get('educationdetails')['controls'].splice(i, 1);  

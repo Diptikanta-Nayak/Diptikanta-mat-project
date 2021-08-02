@@ -68,7 +68,7 @@
 
                         <div class="col form-group">
                             <label>Resume Upload</label>
-                            <input type="file" formControlName="upload" class="form-control" name="myfile" multiple
+                            <input type="file" formControlName="upload" (change)="uploadFile($event)" class="form-control" name="myfile" multiple
                                 [ngClass]="{ 'is-invalid':  f.upload.invalid && (f.upload.touched || f.upload.dirty)}">
                             <div *ngIf=" f.upload.invalid && (f.upload.touched || f.upload.dirty)" class="text-danger">
                                 <div *ngIf="f.upload.errors?.required">Upload Is Required</div>

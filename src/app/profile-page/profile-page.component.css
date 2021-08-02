@@ -1,0 +1,93 @@
+.example-card{
+    margin-top: 30px;
+    width: 500px;
+margin-left: 250px;
+}
+.img{
+    text-align: center;
+}
+.userheader{
+   justify-content: center;
+}
+.subtitle{
+    justify-content: center;
+}
+
+  .labeltable{
+     display:flex; 
+     font-size: 15px;
+     justify-content:space-between 
+  }
+ .usertable{
+    width: 1120px;  
+    margin-left: 40px;
+    margin-top: 30px;
+ }
+ 
+table, th, td {
+   
+    border-collapse: collapse;
+    font-size: 30px;
+    }
+    th, td {
+    padding: 5px;
+    text-align: left;
+   
+    }
+    section {
+        display: table;
+      }
+      
+      .example-label {
+        display: table-cell;
+        font-size: 14px;
+        margin-left: 8px;
+        min-width: 120px;
+      }
+      
+      .example-button-row {
+        display: table-cell;
+        width: 490px;
+       
+      }
+      
+      .example-button-row .mat-button-base {
+        margin: 8px 8px 8px 0;
+        margin-left: 100px;
+      
+      }
+      
+      .example-flex-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      
+      .example-button-container {
+        display: flex;
+        justify-content: center;
+        width: 120px;
+      }
+      .userdata{
+        width: 550px;  
+       margin-left: 40px;
+       margin-top: 30px;
+    }
+    * {box-sizing: border-box}
+
+.container {
+  width: 100%;
+  background-color: #ddd;
+}
+
+.skills {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.html {width: 90%; background-color: #04AA6D;}
+.css {width: 80%; background-color: #2196F3;}
+.js {width: 65%; background-color: #f44336;}
+.php {width: 60%; background-color: #808080;}

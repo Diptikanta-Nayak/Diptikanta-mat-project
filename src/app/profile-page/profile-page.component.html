@@ -1,0 +1,132 @@
+<div style="display:flex">
+    <mat-card class="example-card">
+        <div class="img">
+            <img src="assets/download.jpg">
+        </div>
+
+        <mat-card-header class="userheader">
+            <mat-card-title>
+                <h2>Diptikanta Nayak</h2>
+            </mat-card-title>
+            <mat-card-subtitle>
+                <h3>Softwere Developer</h3>
+            </mat-card-subtitle>
+        </mat-card-header>
+        <div class="example-button-row">
+            <button mat-flat-button color="primary" routerLink="/userstripper-edit/{{id}}">Edit</button>
+            <button mat-flat-button color="accent" routerLink="/employee" (click)="delete()">Delete</button>
+        </div>
+    </mat-card>
+
+    <mat-card class='usertable'>
+        <table class="table table-striped w-100">
+            <tr>
+            <tr>
+                <td> Full Name</td>
+                <td>{{result[0].firstName}} {{result[0].lastName}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{result[0].email}}</td>
+            </tr>
+            <tr>
+                <td>Mobile Number</td>
+                <td> {{result[0].mobileNo}}</td>
+            </tr>
+            <tr>
+                <td>Addhar Card</td>
+                <td>{{result[0].addharCard}}</td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>{{result[0].permanentAaddress}}</td>
+            </tr>
+        </table>
+    </mat-card>
+</div>
+
+<div style="display: flex;">
+    <mat-card class="example-card">
+        <div class="labeltable">
+            <label>
+                <mat-icon>language</mat-icon>
+            </label>
+            <label>
+                <h5>Website</h5>
+            </label>
+            <label>http//:hdfgd.com</label>
+        </div>
+
+        <div class="labeltable">
+            <label>
+                <mat-icon>facebook</mat-icon>
+            </label>
+            <label>
+                <h5>Facebook</h5>
+            </label>
+            <label>http//:fb.com</label>
+        </div>
+
+        <div class="labeltable">
+            <label>
+                <mat-icon>mail</mat-icon>
+            </label>
+            <label>
+                <h5>Mail</h5>
+            </label>
+            <label>d@gmail.com</label>
+        </div>
+        <div class="labeltable">
+            <label>
+                <mat-icon> local_grocery_store</mat-icon>
+            </label>
+            <label>
+                <h5>Flipcart</h5>
+            </label>
+            <label>d@Flipcart.com</label>
+        </div>
+    </mat-card>
+    <mat-card class='userdata'>
+        <p>HTML</p>
+        <div class="container">
+            <div class="skills html">90%</div>
+        </div>
+
+        <p>CSS</p>
+        <div class="container">
+            <div class="skills css">80%</div>
+        </div>
+
+        <p>JavaScript</p>
+        <div class="container">
+            <div class="skills js">65%</div>
+        </div>
+
+        <p>.Net</p>
+        <div class="container">
+            <div class="skills php">60%</div>
+        </div>
+    </mat-card>
+
+    <mat-card class='userdata'>
+        <p>HTML</p>
+        <div class="container">
+            <div class="skills html">90%</div>
+        </div>
+
+        <p>CSS</p>
+        <div class="container">
+            <div class="skills css">80%</div>
+        </div>
+
+        <p>JavaScript</p>
+        <div class="container">
+            <div class="skills js">65%</div>
+        </div>
+
+        <p>.Net</p>
+        <div class="container">
+            <div class="skills php">60%</div>
+        </div>
+    </mat-card>
+</div>

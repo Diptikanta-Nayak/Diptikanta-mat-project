@@ -29,7 +29,7 @@ export class StripperStepFiveComponent implements OnInit {
     });
   }
 
-  fuchideShow() {
+  addExperience() {
     const data = this.stepFiveForm.get('experiencedetails') as FormArray;
     data.push(this.createItem());
   }
@@ -41,9 +41,7 @@ export class StripperStepFiveComponent implements OnInit {
       itemsContorls.controls[i].markAllAsTouched();
       return;
     }
-
     itemsContorls.controls[i].disable();
-
   }
 
   delete(i: number) {

@@ -23,6 +23,7 @@ import { StripperStepFourComponent } from './stripper-step-four/stripper-step-fo
 import { StripperStepFiveComponent } from './stripper-step-five/stripper-step-five.component';
 import { StripperStepSixComponent } from './stripper-step-six/stripper-step-six.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { EmployeeComponent } from './employee/employee.component';
     StripperStepFiveComponent,
     StripperStepSixComponent,
     EmployeeComponent,
+    ProfilePageComponent,
   ],
 
   imports: [
